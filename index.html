@@ -1,7 +1,67 @@
+<!-- Author: Jeff Schneider
+Copyright 2015, SuiteRetail Inc
+Used for manual credit cards in POS.  auto submits a form from a web view passing the parameters for credit card charges (manual)
+Version 1.03
+1-11-16 move to dropbox
+1-6-16 Initial version
+-->
+
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
+    <head>
+<script type="text/javascript">
+  var SuiteRetail = SuiteRetail || {};
+  SuiteRetail.queryString = (function(s) {
+      if (s=="") return {};
+      var r={};
+      for (var i = 0; i < s.length; ++i)
+      {
+          var q=s[i].split('=', 2);
+          if (q.length == 1)
+              r[q[0]] = "";
+          else
+              r[q[0]] = decodeURIComponent(q[1].replace(/\+/g, " "));
+      }
+      return r;
+  })(window.location.search.substr(1).split('&'));
+</script>
+
+        <meta charset="UTF-8">
+        </head>
+        <body>	
+                    <h1></h1>
+					
+				    <!-- BEGIN HOSTED PAYMENT PAGE FORM -->
+                    <form id="ekashu_form" form action="https://test.ekashu.com" method="post">
+                        <input type="hidden" id="ekashu_seller_id" name="ekashu_seller_id"/>
+                        <input type="hidden" id="ekashu_seller_key" name="ekashu_seller_key"/>					
+                        <input type="hidden" id="ekashu_amount" name="ekashu_amount"	/>
+						<input type="hidden" id="ekashu_reference" name="ekashu_reference" value="test_reference"/>
+                        <input type="hidden" id="ekashu_currency" name="ekashu_currency" value="USD"/>
+                        <input type="hidden" name="ekashu_style_sheet" value="https://github.com/SuiteRetail/suiteretail.github.io/blob/master/ekashu.css"/>
+						<input type="hidden" name="ekashu_viewport" value="width=device-width"/> 
+						<input type="hidden" name="ekashu_auto_confirm" value="true"/> <!-- eKashu auto confirm set to true -->
+						<input type="hidden" name="ekashu_verification_value_verify" value="true"/>
+						<input type="hidden" name="ekashu_card_address_verify" value="false"/>
+						<input type="hidden" name="ekashu_card_zip_code_verify" value="false"/>						
+                   	 </form>
+				<script type="text/javascript">
+				var _action = SuiteRetail.queryString["action"];
+				var _amount = SuiteRetail.queryString["amount"];
+				var _sellerid = SuiteRetail.queryString["sellerid"];
+                var _sellerkey = SuiteRetail.queryString["sellerkey"];
+                var _reference = SuiteRetail.queryString["reference"];
+                var _currency = SuiteRetail.queryString["currency"];
+				document.getElementById("ekashu_amount").value = _amount;
+				document.getElementById("ekashu_seller_id").value = _sellerid;
+                document.getElementById("ekashu_seller_key").value = _sellerkey;
+                document.getElementById("ekashu_reference").value = _reference;
+                document.getElementById("ekashu_currency").value = _currency;
+                if(_action) {
+                    document.getElementById("ekashu_form").action = _action;
+                }
+				document.getElementById("ekashu_form").submit();
+				</script>
+                    <!-- /END HOSTED PAYMENT PAGE FORM -->
+                </body>
+            </html>
