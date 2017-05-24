@@ -9,3 +9,4 @@ General Hosting Pages for SuiteRetail
 eKashu - HTML page for processing manual cardease credit cards
 
 Images - Used to host images that are used by SuitePOS
+ 
