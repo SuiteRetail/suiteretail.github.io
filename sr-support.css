@@ -7,7 +7,7 @@
 \pard\pardeftab720\partightenfactor0
 
 \f0\fs26 \cf0 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 /* Custom Help Scout StyleSheet - by Devan Sabaratnam (founder of HR Partner - www.hrpartner.io) */\
+\outl0\strokewidth0 \strokec2 /* Custom Help Scout StyleSheet - by Ray Tetlow, SuiteRetail) */\
 /* Color pallette chosen from https://coolors.co/54494b-7e8287-9da39a-b98389-db2955 */\
 \
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,400i,500,700');\
@@ -71,7 +71,7 @@ a.brand > img \{\
 /* Home Page Search Bar Background */\
 \
 #docsSearch \{\
-	background: #ffffff;\
+	background: #000000;\
 	border-top: 1px solid #dadada;\
 	margin-bottom: 3em;\
 	padding: 1.5em 0;\
